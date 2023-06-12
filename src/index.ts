@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from 'cors' ;
 import mongoose from "mongoose";
 
-dotenv.config()
+dotenv.config();
 const app = express();
 
 const port : string | undefined  = process.env.PORT ;
