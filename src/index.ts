@@ -12,4 +12,4 @@ app.use(cors({ credentials : true}))
 
 app.listen( port , ()=> {
    console.log(`Listening to Idan on Port ${port}`)
-}) 
+});
