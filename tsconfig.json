@@ -6,6 +6,8 @@
       "outDir": "dist",
       "sourceMap": true,
       "noImplicitAny": true,
+      "emitDecoratorMetadata": true,
+     "experimentalDecorators": true,
     },
     "include": [
          "src/**/*" ,
