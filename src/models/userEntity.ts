@@ -1,4 +1,6 @@
-import  { Entity , PrimaryGeneratedColumn , Column , OneToMany , BeforeInsert , BeforeUpdate} from "typeorm" ;
+import  { Entity , PrimaryGeneratedColumn , CreateDateColumn, Column , OneToMany , BeforeInsert , BeforeUpdate} from "typeorm" ;
+import { Song } from "../models/songEntity";
+import { Ratings } from "../models/songRatingsEntity";
 
 @Entity()
 export class User {
@@ -17,7 +19,7 @@ export class User {
    @Column()
    password: string ;
 
-   @Column({default : "User"})
+   @Column({default : "normaluser"})
    role: string ;
 
    @BeforeInsert()
@@ -28,12 +30,19 @@ export class User {
       this.role = 'normaluser';
     }
   }
+
   @OneToMany(() => Song, song => song.user)
   songs: Song[];
 
-  @OneToMany(() => Message, message => message.sender)
-  sentMessages: Message[];
+  @OneToMany(() => Ratings, rating => rating.user)
+  ratings: Ratings[];
 
-  @OneToMany(() => Message, message => message.receiver)
-  receivedMessages: Message[];
+  @CreateDateColumn()
+  createdAt: Date;
+
+//   @OneToMany(() => Message, message => message.sender)
+//   sentMessages: Message[];
+
+//   @OneToMany(() => Message, message => message.receiver)
+//   receivedMessages: Message[];
 }
