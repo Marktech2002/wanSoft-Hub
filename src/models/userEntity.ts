@@ -1,4 +1,4 @@
-import  { Entity , PrimaryGeneratedColumn , CreateDateColumn, Column , OneToMany , BeforeInsert , BeforeUpdate} from "typeorm" ;
+import  { Entity , PrimaryGeneratedColumn , CreateDateColumn, Column , OneToMany , BeforeInsert , BeforeUpdate } from "typeorm" ;
 import { Song } from "../models/songEntity";
 import { Ratings } from "../models/songRatingsEntity";
 

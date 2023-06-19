@@ -2,6 +2,7 @@ import { Entity , PrimaryGeneratedColumn , CreateDateColumn , Column , ManyToOne
 import { Song } from "../models/songEntity";
 import { User } from "../models/userEntity";
 
+@Entity()
 export class Ratings {
     @PrimaryGeneratedColumn()
     id: number ;
@@ -14,7 +15,7 @@ export class Ratings {
 
     @ManyToOne(() => Song, song => song.ratings)
     song: Song;
-    
+
     @CreateDateColumn()
     createdAt: Date;
 
