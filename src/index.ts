@@ -2,6 +2,7 @@ import express from "express" ;
 import dotenv from "dotenv";
 import cors from 'cors' ;
 import { AppDataSource } from "../src/migrations/data-source";
+import userRoute from "./routes/userRoute";
 import { errorHandler  }  from '../src/middlewares/errorMiddleware';
 
 dotenv.config(); 
@@ -18,10 +19,14 @@ AppDataSource.initialize()
 
 const port : string | undefined  = process.env.PORT ;
 //middlewares
-app.use(errorHandler)
 app.use(express.urlencoded({extended : false }))
 app.use(cors({ credentials : true}));
 
+
+//routes 
+app.use('/softhub/user', userRoute)
+app.use(errorHandler)
+
 app.listen( port , ()=> {
    console.log(`Listening to Idan on Port ${port}`)
-}); 
+});  

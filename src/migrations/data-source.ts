@@ -7,7 +7,7 @@ import { Ratings } from "../models/songRatingsEntity";
 
 export const AppDataSource = new DataSource({
     type: "mysql",
-    host: "localhost",
+    host: " 127.0.0.1",
     username: "root",
     password: "password",
     database: "wanSoftHub",
@@ -16,4 +16,4 @@ export const AppDataSource = new DataSource({
     entities: [User, Song, Ratings],
     subscribers: [],
     migrations: [],
-}) 
+})  

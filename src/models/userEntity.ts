@@ -1,4 +1,5 @@
 import  { Entity , PrimaryGeneratedColumn , CreateDateColumn, Column , OneToMany , BeforeInsert , BeforeUpdate } from "typeorm" ;
+import { IsEmail } from "class-validator";
 import { Song } from "../models/songEntity";
 import { Ratings } from "../models/songRatingsEntity";
 
@@ -13,7 +14,8 @@ export class User {
    @Column()
    secondName: string;
 
-   @Column()
+   @Column({ unique: true })
+   @IsEmail()
    email: string;
 
    @Column()
