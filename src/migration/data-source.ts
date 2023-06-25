@@ -11,6 +11,7 @@ export const AppDataSource = new DataSource({
     username: "root",
     password: "password",
     database: "wanSoftHub",
+    //  i think the issue is here , synchronize:
     synchronize: true,
     logging: true,
     entities: [User, Song, Ratings],
