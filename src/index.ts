@@ -1,7 +1,7 @@
 import express from "express" ;
 import dotenv from "dotenv";
 import cors from 'cors' ;
-import { AppDataSource } from "../src/migrations/data-source";
+import { AppDataSource } from "./migration/data-source";
 import userRoute from "./routes/userRoute";
 import { errorHandler  }  from '../src/middlewares/errorMiddleware';
 
@@ -19,10 +19,11 @@ AppDataSource.initialize()
 
 const port : string | undefined  = process.env.PORT ;
 //middlewares
+app.use(express.json());
 app.use(express.urlencoded({extended : false }))
 app.use(cors({ credentials : true}));
 
-
+ 
 //routes 
 app.use('/softhub/user', userRoute)
 app.use(errorHandler)

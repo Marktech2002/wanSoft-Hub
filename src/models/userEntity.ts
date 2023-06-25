@@ -14,6 +14,9 @@ export class User {
    @Column()
    secondName: string;
 
+//    @Column()
+//    city: string;
+
    @Column({ unique: true })
    @IsEmail()
    email: string;

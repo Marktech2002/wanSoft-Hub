@@ -8,17 +8,17 @@ export class Song {
     id: number ;
 
     @Column()
-    title: string ;
+    title: string;
 
-    @Column({type : 'text'}) 
-    lyrics : string ;
+    @Column({type: 'text'}) 
+    lyrics : string;
     
-    @ManyToOne(()=> User , user => user.songs) 
+    @ManyToOne(() => User, user => user.songs) 
     user: User ;
 
-    @OneToMany(()=> Ratings , rating => rating.song)
+    @OneToMany(() => Ratings, rating => rating.song)
     ratings: Ratings[];
 
     @CreateDateColumn()
     createdAt: Date;
-}
+} 
